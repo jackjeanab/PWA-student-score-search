@@ -24,12 +24,11 @@
     <main>
       <img src="./icon.png" alt="學生個人成績查詢系統圖示" />
       <h1>學生個人成績查詢系統</h1>
-      <p>正在開啟系統，請稍候……</p>
-      <a id="openApp" href="https://script.google.com/a/macros/hlc.edu.tw/s/AKfycbyDmhlDpI57YboIm7Hgu2Mkhhhr6r45hmDKvatzxBNG2BgC-lAM_J9RbuMCZD6r723M/exec">手動開啟系統</a>
+      <p>點選下方按鈕，開啟成績查詢系統。</p>
+      <a id="openApp" href="https://script.google.com/a/macros/hlc.edu.tw/s/AKfycbyDmhlDpI57YboIm7Hgu2Mkhhhr6r45hmDKvatzxBNG2BgC-lAM_J9RbuMCZD6r723M/exec">開啟成績查詢系統</a>
     </main>
     <script>
       if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
-      setTimeout(function () { window.location.replace(document.getElementById('openApp').href); }, 700);
     </script>
   </body>
 </html>

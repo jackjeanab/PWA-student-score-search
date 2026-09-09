@@ -1,4 +1,4 @@
-const CACHE_NAME = 'student-score-launcher-v1';
+const CACHE_NAME = 'student-score-launcher-v2';
 const SHELL = './';
 
 self.addEventListener('install', event => {
