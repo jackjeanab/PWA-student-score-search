@@ -29,6 +29,9 @@
     </main>
     <script>
       if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
+      const appLink = document.getElementById('openApp');
+      const isInstalled = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+      if (isInstalled) window.setTimeout(function () { window.location.replace(appLink.href); }, 250);
     </script>
   </body>
 </html>
