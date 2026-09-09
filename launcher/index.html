@@ -28,10 +28,26 @@
       <a id="openApp" href="https://script.google.com/a/macros/hlc.edu.tw/s/AKfycbyDmhlDpI57YboIm7Hgu2Mkhhhr6r45hmDKvatzxBNG2BgC-lAM_J9RbuMCZD6r723M/exec">開啟成績查詢系統</a>
     </main>
     <script>
-      if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
       const appLink = document.getElementById('openApp');
-      const isInstalled = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-      if (isInstalled) window.setTimeout(function () { window.location.replace(appLink.href); }, 250);
+
+      // Chrome/Android uses display-mode; iOS Safari uses navigator.standalone.
+      // Include the other PWA display modes so the launcher also works when the
+      // installed shortcut was created with a browser-specific display mode.
+      const displayMode = window.matchMedia(
+        '(display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui)'
+      );
+      const isInstalled = displayMode.matches || window.navigator.standalone === true;
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
+          .then(function (registration) { return registration.update(); })
+          .catch(function () {});
+      }
+
+      if (isInstalled) {
+        // Give the PWA shell a moment to paint, then leave the launcher.
+        window.setTimeout(function () { window.location.replace(appLink.href); }, 300);
+      }
     </script>
   </body>
 </html>
