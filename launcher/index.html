@@ -47,7 +47,7 @@
 
       if (isInstalled) {
         // Give the PWA shell a moment to paint, then leave the launcher.
-        window.setTimeout(function () { window.location.replace(appLink.href); }, 300);
+        window.setTimeout(function () { window.location.replace(appLink.href); }, 50);
       } else {
         document.documentElement.classList.remove('pwa-checking');
       }
