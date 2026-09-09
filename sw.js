@@ -1,8 +1,8 @@
-const CACHE_NAME = 'student-score-launcher-v3';
+const CACHE_NAME = 'student-score-launcher-v4';
 const SHELL = './';
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(['./', './index.html', './manifest.webmanifest', './icon.png'])).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(['./', './index.html', './manifest.webmanifest', './icon.svg', './icon.png'])).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', event => {
