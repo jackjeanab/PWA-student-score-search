@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#063f50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="學生個人成績查詢系統" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <title>學生個人成績查詢系統</title>
+    <style>
+      :root { color-scheme: light; font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+      body { display: grid; min-height: 100vh; place-items: center; margin: 0; color: #063f50; background: linear-gradient(135deg, #f7f3e8, #dff3ed); }
+      main { width: min(88vw, 360px); padding: 32px 24px; text-align: center; border-radius: 28px; background: rgba(255,255,255,.84); box-shadow: 0 18px 44px rgba(32,49,38,.14); }
+      img { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 12px 28px rgba(6,63,80,.22); }
+      h1 { margin: 20px 0 10px; font-size: 1.35rem; }
+      p { margin: 0; color: #5d6d62; line-height: 1.6; }
+      a { display: inline-block; margin-top: 22px; padding: 12px 18px; color: #fff; text-decoration: none; border-radius: 999px; background: #1f6f5f; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="./icon.svg" alt="學生個人成績查詢系統圖示" />
+      <h1>學生個人成績查詢系統</h1>
+      <p>點選下方按鈕，開啟成績查詢系統。</p>
+      <a id="openApp" href="https://script.google.com/a/macros/hlc.edu.tw/s/AKfycbyDmhlDpI57YboIm7Hgu2Mkhhhr6r45hmDKvatzxBNG2BgC-lAM_J9RbuMCZD6r723M/exec">開啟成績查詢系統</a>
+    </main>
+    <script>
+      if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
+    </script>
+  </body>
+</html>
