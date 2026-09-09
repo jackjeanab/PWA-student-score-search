@@ -22,7 +22,7 @@
     </main>
   </div>
   <script>
-    const GAS_URL='https://script.google.com/a/macros/hlc.edu.tw/s/AKfycbyDmhlDpI57YboIm7Hgu2Mkhhhr6r45hmDKvatzxBNG2BgC-lAM_J9RbuMCZD6r723M/exec';
+    const GAS_URL='https://script.google.com/a/macros/hlc.edu.tw/s/AKfycbyDmhlDpI57YboIm7Hgu2Mkhhhr6r45hmDKvatzxBNG2BgC-lAM_J9RbuMCZD6r723M/exec?api=bridge';
     const state={role:'',student:null,teacher:null,studentToken:'',teacherToken:'',scope:'regular',subjects:[],mockSubjects:[],activeSubject:null,requestId:0,pending:{},studentOptions:[]};
     const $=id=>document.getElementById(id); const bridge=$('gasBridge'); bridge.src=GAS_URL;
     window.addEventListener('message',event=>{const d=event.data;if(!d||d.type!=='student-score-response'||!state.pending[d.requestId])return;const p=state.pending[d.requestId];delete state.pending[d.requestId];d.ok?p.resolve(d.result):p.reject(new Error(d.error||'連線失敗'));});
